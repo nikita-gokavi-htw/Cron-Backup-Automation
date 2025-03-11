@@ -1,0 +1,20 @@
+name: Sync Backup Script
+
+on:
+  push:
+    branches:
+      - main  # Runs whenever you push changes to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Copy Backup Script to Server
+      run: |
+        ssh user@your-server-ip 'rm -f ~/backup.sh'  # Remove old script
+        scp backup.sh user@your-server-ip:~/backup.sh  # Copy updated script
+        ssh user@your-server-ip 'chmod +x ~/backup.sh'  # Make it executable
