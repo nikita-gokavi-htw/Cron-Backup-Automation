@@ -17,4 +17,4 @@ jobs:
       run: |
         ssh user@your-server-ip 'rm -f ~/backup.sh'  # Remove old script
         scp backup.sh user@your-server-ip:~/backup.sh  # Copy updated script
-        ssh user@your-server-ip 'chmod +x ~/backup.sh'  # Make it executable
+        ssh LAPTOP-HSQ7F6RA@192.168.1.82 'chmod +x ~/backup.sh'  # Make it executable
